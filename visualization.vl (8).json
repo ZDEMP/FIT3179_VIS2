@@ -32,7 +32,7 @@
     {
       "filter": "Party_selection == null || datum['WP_2016'] == Party_selection"
     },
-    {"filter": "datum['%ofTotalVotes2016'] > Winning_Party"},
+    {"filter": "datum['Prop_Total_V'] > Winning_Party"},
     {
       "calculate": "datum['2016TotalVotes']/datum['2016_Popuation'] * 100",
       "as": "Votes per 100 people"
@@ -94,7 +94,7 @@
           },
           {"field": "WP_2016", "type": "nominal", "title": "Winning Party"},
           {
-            "field": "%ofTotalVotes2016",
+            "field": "Prop_Total_V",
             "type": "quantitative",
             "format": "%",
             "title": "% of Winning Party Votes"
@@ -142,7 +142,7 @@
           },
           {"field": "WP_2016", "type": "nominal", "title": "Winning Party"},
           {
-            "field": "%ofTotalVotes2016",
+            "field": "Prop_Total_V",
             "type": "quantitative",
             "format": "%",
             "title": "% of Winning Party Votes"
