@@ -1,0 +1,160 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 700,
+  "height": 500,
+  "title": "Votes by State in the 2016 Election",
+  "data": {
+    "url": "https://raw.githubusercontent.com/ZDEMP/FIT3179_VIS2/main/Vis2_Data.csv"
+  },
+  "params": [
+    {
+      "name": "Winning_Party",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0.3,
+        "max": 1,
+        "step": 0.05,
+        "name": "% of Votes by Winning Party: "
+      }
+    },
+    {
+      "name": "Party_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "democrat", "republican"],
+        "labels": ["Show All", "Democrat", "Republican"],
+        "name": "Continent Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "Party_selection == null || datum['WP_2016'] == Party_selection"
+    },
+    {"filter": "datum['%ofTotalVotes2016'] > Winning_Party"},
+    {
+      "calculate": "datum['2016TotalVotes']/datum['2016_Popuation'] * 100",
+      "as": "Votes per 100 people"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "2016_Popuation",
+      "type": "quantitative",
+      "title": "State Population",
+      "axis": {"tickCount": 3},
+      "scale": {"type": "log", "domain": [100000, 40000000]}
+    },
+    "y": {
+      "field": "2016TotalVotes",
+      "type": "quantitative",
+      "title": "Votes by State",
+      "axis": {"tickCount": 3},
+      "scale": {"type": "log", "domain": [900000, 20000000]}
+    }
+  },
+  "layer": [
+    {
+      "selection": {
+        "Party_highlight": {
+          "type": "multi",
+          "fields": ["WP_2016"],
+          "bind": "legend"
+        }
+      },
+      "mark": "circle",
+      "encoding": {
+        "color": {
+          "field": "WP_2016",
+          "type": "nominal",
+          "title": "Winning Party",
+          "scale": {
+            "domain": ["democrat", "republican"],
+            "range": ["Blue", "Red"]
+          }
+        },
+        "opacity": {
+          "condition": {"selection": "Party_highlight", "value": 0.6},
+          "value": 0.2
+        },
+        "tooltip": [
+          {"field": "States", "type": "nominal", "title": "State"},
+          {
+            "field": "2016TotalVotes",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Total Votes"
+          },
+          {
+            "field": "2016_Popuation",
+            "type": "quantitative",
+            "format": ",",
+            "title": "State Population"
+          },
+          {"field": "WP_2016", "type": "nominal", "title": "Winning Party"},
+          {
+            "field": "%ofTotalVotes2016",
+            "type": "quantitative",
+            "format": "%",
+            "title": "% of Winning Party Votes"
+          },
+          {
+            "field": "Votes per 100 people",
+            "type": "quantitative",
+            "format": ".2f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "top",
+        "dx": -8,
+        "fontSize": 11,
+        "fontStyle": "arial"
+      },
+      "encoding": {
+        "text": {"field": "States", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['States'] == 'California' || datum['States'] == 'Texas' || datum['States'] == 'New York' || datum['States'] == 'Maine'|| datum['States'] == 'Wyoming' || datum['States'] == 'Florida' || datum['States'] == 'Hawaii'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "States", "type": "nominal", "title": "State"},
+          {
+            "field": "2016TotalVotes",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Total Votes"
+          },
+          {
+            "field": "2016_Popuation",
+            "type": "quantitative",
+            "format": ",",
+            "title": "State Population"
+          },
+          {"field": "WP_2016", "type": "nominal", "title": "Winning Party"},
+          {
+            "field": "%ofTotalVotes2016",
+            "type": "quantitative",
+            "format": "%",
+            "title": "% of Winning Party Votes"
+          },
+          {
+            "field": "Votes per 100 people",
+            "type": "quantitative",
+            "format": ".2f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
