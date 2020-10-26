@@ -1,0 +1,22 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ZDEMP/FIT3179_VIS2/main/Yearly%20Data.csv"
+  },
+  "mark": "area",
+  "encoding": {
+    "x": {"timeUnit": "year", "field": "Year", "axis": {"format": "%Y"}},
+    "y": {"aggregate": "sum", "field": "Votes_MvI", "title": "Total Votes"},
+    "color": {
+      "field": "MvI",
+      "scale": {
+        "domain": ["Main", "Independent"],
+        "range": ["#faff17", "#d5d5d5"]
+      },
+      "title": "Type of Party"
+    }
+  },
+  "config": {}
+}
