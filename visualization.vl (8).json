@@ -22,7 +22,7 @@
       "name": "Party_selection",
       "bind": {
         "input": "select",
-        "options": [null, "democrat", "republican"],
+        "options": [null, "Democrat", "Republican"],
         "labels": ["Show All", "Democrat", "Republican"],
         "name": "Continent Selection: "
       }
@@ -70,7 +70,7 @@
           "type": "nominal",
           "title": "Winning Party",
           "scale": {
-            "domain": ["democrat", "republican"],
+            "domain": ["Democrat", "Republican"],
             "range": ["Blue", "Red"]
           }
         },
