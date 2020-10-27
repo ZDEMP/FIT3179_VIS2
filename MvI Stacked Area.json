@@ -5,9 +5,32 @@
   "data": {
     "url": "https://raw.githubusercontent.com/ZDEMP/FIT3179_VIS2/main/Yearly%20Data.csv"
   },
+  "params": [
+    {
+      "name": "Type_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "Main", "Independent"],
+        "labels": ["Show All", "Main", "Independent"],
+        "name": "Type Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "Type_selection == null || datum['MvI'] == Type_selection"},
+    {
+      "calculate": "datum['Ind_Votes']/datum['Total Votes']",
+      "as": "Proportion of Independent Votes"
+    }
+  ],
   "mark": "area",
   "encoding": {
-    "x": {"timeUnit": "year", "field": "Year", "axis": {"format": "%Y"}},
+    "x": {
+      "timeUnit": "year",
+      "field": "Year",
+      "axis": {"format": "%Y"},
+      "title": "Year"
+    },
     "y": {"aggregate": "sum", "field": "Votes_MvI", "title": "Total Votes"},
     "color": {
       "field": "MvI",
@@ -21,16 +44,15 @@
       {"timeUnit": "year", "field": "Year", "type": "nominal"},
       {"field": "Winning_Party", "type": "nominal", "title": "Winning Party"},
       {
-        "field": "Dem Votes Year",
+        "field": "Proportion of Independent Votes",
         "type": "quantitative",
-        "format": ",",
-        "title": "Democrat Votes"
+        "format": "%"
       },
       {
-        "field": "Rep_Votes",
+        "field": "Main_Votes",
         "type": "quantitative",
         "format": ",",
-        "title": "Republican Votes"
+        "title": "Votes for a Main Party"
       },
       {
         "field": "Ind_Votes",
