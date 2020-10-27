@@ -1,0 +1,29 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Republican vs Democrat Votes by Year",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ZDEMP/FIT3179_VIS2/main/Yearly%20Data.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "aggregate": "sum",
+      "field": "RvD_Votes",
+      "title": "Votes",
+      "stack": "normalize"
+    },
+    "x": {"field": "Year"},
+    "color": {
+      "field": "RvD",
+      "type": "nominal",
+      "title": "Party",
+      "scale": {
+        "domain": ["Democrat", "Republican"],
+        "range": ["#3766e8", "#df5c5c"]
+      }
+    }
+  },
+  "config": {}
+}
