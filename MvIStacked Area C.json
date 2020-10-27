@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Trend of  Main Party voters vs Independent Party voters",
   "width": 800,
   "height": 600,
   "data": {
@@ -54,6 +55,16 @@
         "format": ",",
         "title": "Votes for a Main Party"
       },
+      {
+        "field": "Ind_Votes",
+        "type": "quantitative",
+        "format": ",",
+        "title": "Independent Votes"
+      }
+    ]
+  },
+  "config": {}
+}
       {
         "field": "Ind_Votes",
         "type": "quantitative",
