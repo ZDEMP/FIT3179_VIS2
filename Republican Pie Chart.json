@@ -1,0 +1,33 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Republican",
+  "data": {
+    "url": "https://raw.githubusercontent.com/ZDEMP/FIT3179_VIS2/main/Yearly%20Data.csv"
+  },
+  "encoding": {
+    "theta": {"field": "R_Winning", "type": "quantitative", "stack": true},
+    "color": {
+      "field": "Party_Votes",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Democrat", "Republican", "Independent"],
+        "range": ["#3766e8", "#df5c5c", "Grey"]
+      }
+    }
+  },
+  "layer": [
+    {"mark": {"type": "arc", "outerRadius": 80}},
+    {
+      "mark": {"type": "text", "radius": 90},
+      "encoding": {
+        "text": {
+          "field": "RPer_of Total",
+          "type": "quantitative",
+          "format": ".2f"
+        }
+      }
+    }
+  ],
+  "view": {"stroke": null},
+  "config": {}
+}
