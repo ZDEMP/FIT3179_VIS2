@@ -16,7 +16,29 @@
         "range": ["#faff17", "#d5d5d5"]
       },
       "title": "Type of Party"
-    }
+    },
+    "tooltip": [
+      {"timeUnit": "year", "field": "Year", "type": "nominal"},
+      {"field": "Winning_Party", "type": "nominal", "title": "Winning Party"},
+      {
+        "field": "Dem Votes Year",
+        "type": "quantitative",
+        "format": ",",
+        "title": "Democrat Votes"
+      },
+      {
+        "field": "Rep_Votes",
+        "type": "quantitative",
+        "format": ",",
+        "title": "Republican Votes"
+      },
+      {
+        "field": "Ind_Votes",
+        "type": "quantitative",
+        "format": ",",
+        "title": "Independent Votes"
+      }
+    ]
   },
   "config": {}
 }
