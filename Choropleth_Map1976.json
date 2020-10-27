@@ -19,10 +19,7 @@
         "fields": ["Normalisin_Data1976", "WP_1976", "TotalVotes1976"]
       }
     },
-    {
-      "calculate": "datum['Normalisin_Data1976']",
-      "as": "Proportion of Total Votes"
-    }
+    {"calculate": "datum['Normalisin_Data1976']", "as": "Proportion of Total Votes"}
   ],
   "mark": {"type": "geoshape"},
   "encoding": {
@@ -30,12 +27,8 @@
       "field": "Proportion of Total Votes",
       "type": "quantitative",
       "scale": {"domain": [1, 0], "scheme": "redblue"},
-      "legend": {
-        "direction": "horizontal",
-        "labelOpacity": 0,
-        "title": "Republican - Democrat",
-        "gradientLength": 120
-      }
+      "legend": {"direction": "horizontal", "labelOpacity": 0, 
+      "title": "Republican - Democrat", "gradientLength": 120}
     },
     "tooltip": [
       {"field": "properties.name", "type": "nominal", "title": "State"},
