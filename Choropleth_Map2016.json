@@ -24,16 +24,19 @@
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
-      "field": "Proportion of Total Votes",
-      "type": "quantitative",
-      "scale": {"domain": [1, 0], "scheme": "redblue"}
+        "field": "Proportion of Total Votes",
+        "type": "quantitative",
+        "scale": {"domain": [1, 0], "scheme": "redblue"},
+        "legend": {"direction": "horizontal", "labelOpacity": 0, 
+        "title": "Republican - Democrat", "gradientLength": 120}
     },
     "tooltip": [
       {"field": "properties.name", "type": "nominal", "title": "State"},
       {
         "field": "Prop_Total_V",
         "type": "quantitative",
-        "title": "Winning Percentage of Votes"
+        "title": "Winning Percentage of Votes",
+        "format": "%"
       },
       {"field": "WP_2016", "type": "nominal"}
     ]
