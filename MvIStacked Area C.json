@@ -65,13 +65,3 @@
   },
   "config": {}
 }
-      {
-        "field": "Ind_Votes",
-        "type": "quantitative",
-        "format": ",",
-        "title": "Independent Votes"
-      }
-    ]
-  },
-  "config": {}
-}
