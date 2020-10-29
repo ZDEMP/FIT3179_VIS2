@@ -18,11 +18,7 @@
     }
   ],
   "transform": [
-    {"filter": "Type_selection == null || datum['MvI'] == Type_selection"},
-    {
-      "calculate": "datum['Ind_Votes']/datum['Total Votes']",
-      "as": "Proportion of Independent Votes"
-    }
+    {"filter": "Type_selection == null || datum['MvI'] == Type_selection"}
   ],
   "mark": "area",
   "encoding": {
@@ -45,9 +41,10 @@
       {"timeUnit": "year", "field": "Year", "type": "nominal"},
       {"field": "Winning_Party", "type": "nominal", "title": "Winning Party"},
       {
-        "field": "Proportion of Independent Votes",
+        "field": "Prop_Ind_Votes",
+        "title": "Proportion of Independent Votes",
         "type": "quantitative",
-        "format": "%"
+        "format": ".2f"
       },
       {
         "field": "Main_Votes",
