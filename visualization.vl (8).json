@@ -8,14 +8,14 @@
   },
   "params": [
     {
-      "name": "Winning_Party",
+      "name": "Votes_Per",
       "value": 0,
       "bind": {
         "input": "range",
-        "min": 0.3,
-        "max": 1,
-        "step": 0.05,
-        "name": "% of Votes by Winning Party: "
+        "min": 30,
+        "max": 60,
+        "step": 1,
+        "name": "Votes per 100 People: "
       }
     },
     {
@@ -24,19 +24,19 @@
         "input": "select",
         "options": [null, "Democrat", "Republican"],
         "labels": ["Show All", "Democrat", "Republican"],
-        "name": "Continent Selection: "
+        "name": "Party Selection: "
       }
     }
   ],
   "transform": [
     {
       "filter": "Party_selection == null || datum['WP_2016'] == Party_selection"
-    },
-    {"filter": "datum['Prop_Total_V'] > Winning_Party"},
-    {
-      "calculate": "datum['2016TotalVotes']/datum['2016_Popuation'] * 100",
+    },   
+    {"calculate": "datum['2016TotalVotes']/datum['2016_Popuation'] * 100",
       "as": "Votes per 100 people"
-    }
+    },
+    {"filter": "datum['Votes per 100 people'] > Votes_Per"}
+
   ],
   "encoding": {
     "x": {
@@ -74,6 +74,16 @@
             "range": ["Blue", "Red"]
           }
         },
+        "size":{
+          "field": "Prop_Total_V",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [0.4, 0.5,  0.6],
+            "range": [10, 50, 150, 300]
+          },
+          "legend": {"format": ".2f", "title": "Winning Party Proportion"}
+        },
         "opacity": {
           "condition": {"selection": "Party_highlight", "value": 0.6},
           "value": 0.2
@@ -93,12 +103,6 @@
             "title": "State Population"
           },
           {"field": "WP_2016", "type": "nominal", "title": "Winning Party"},
-          {
-            "field": "Prop_Total_V",
-            "type": "quantitative",
-            "format": "%",
-            "title": "% of Winning Party Votes"
-          },
           {
             "field": "Votes per 100 people",
             "type": "quantitative",
@@ -121,7 +125,7 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['States'] == 'California' || datum['States'] == 'Texas' || datum['States'] == 'New York' || datum['States'] == 'Maine'|| datum['States'] == 'Wyoming' || datum['States'] == 'Florida' || datum['States'] == 'Hawaii'",
+            "test": "datum['States'] == 'California' || datum['States'] == 'North Carolina' || datum['States'] == 'New York' || datum['States'] == 'Maine'|| datum['States'] == 'Wyoming' || datum['States'] == 'Florida' || datum['States'] == 'Wisconsin'",
             "value": 1
           },
           "value": 0
@@ -141,12 +145,6 @@
             "title": "State Population"
           },
           {"field": "WP_2016", "type": "nominal", "title": "Winning Party"},
-          {
-            "field": "Prop_Total_V",
-            "type": "quantitative",
-            "format": "%",
-            "title": "% of Winning Party Votes"
-          },
           {
             "field": "Votes per 100 people",
             "type": "quantitative",
