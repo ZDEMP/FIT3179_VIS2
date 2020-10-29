@@ -36,7 +36,7 @@
         "field": "TotalVotes1976",
         "type": "quantitative",
         "title": "Winning Percentage of Votes",
-        "format": "%"
+        "format": ".2f"
       },
       {"field": "WP_1976", "type": "nominal"}
     ]
