@@ -6,24 +6,55 @@
   "data": {
     "url": "https://raw.githubusercontent.com/ZDEMP/FIT3179_VIS2/main/Yearly%20Data.csv"
   },
-  "mark": "bar",
+  "params": [
+    {
+      "name": "Party_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Democrat",
+          "Republican"
+        ],
+        "labels": [
+          "Show All",
+          "Democrat",
+          "Republican"
+        ],
+        "name": "Party in Power"
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "Party_selection == null || datum['Winning_Party'] == Party_selection"}
+  ],
   "encoding": {
-    "y": {
+      "y": {
       "aggregate": "sum",
       "field": "RvD_Votes",
-      "title": "Votes",
+      "title": "Proportion of Votes",
       "stack": "normalize"
     },
-    "x": {"field": "Year"},
+    "x": {"field": "Year"}
+  },
+  "layer": [{
+  "mark": "bar",
+  "encoding": {
     "color": {
       "field": "RvD",
       "type": "nominal",
       "title": "Party",
       "scale": {
         "domain": ["Democrat", "Republican"],
-        "range": ["#3766e8", "#df5c5c"]
+        "range": ["#2171b5", "#b91b1b"]
       }
-    }
-  },
+    },
+    "tooltip": [
+      {"field": "Winning_Party", "type": "nominal", "title": "Winning Party"},
+      {"field": "R_Votes", "type": "quantitative", "format": ",", "title": "Republican Votes"},
+      {"field": "D_Votes", "type": "quantitative", "format": ",", "title": "Democrat Votes"}
+
+    ]
+  }}],
   "config": {}
 }
