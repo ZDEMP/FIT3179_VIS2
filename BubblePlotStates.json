@@ -71,7 +71,7 @@
           "title": "Winning Party",
           "scale": {
             "domain": ["Democrat", "Republican"],
-            "range": ["Blue", "Red"]
+            "range": ["#2171b5", "#b91b1b"]
           }
         },
         "size":{
