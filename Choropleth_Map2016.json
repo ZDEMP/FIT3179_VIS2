@@ -36,7 +36,7 @@
         "field": "Prop_Total_V",
         "type": "quantitative",
         "title": "Winning Percentage of Votes",
-        "format": "%"
+        "format": ".2f"
       },
       {"field": "WP_2016", "type": "nominal"}
     ]
