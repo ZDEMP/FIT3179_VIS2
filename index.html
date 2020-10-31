@@ -134,6 +134,11 @@
 <script type="text/javascript">
   var specVis1 = "Choropleth_Map1976.json";
   var specVis2 = "Choropleth_Map2016.json";
+  var specVis3 = "BubblePlotStates.json";
+  var specVis4 = "StackedBarChartRvD.json";
+  var specVis5 = "MvIStacked_Area_C.json";
+  var specVis6 = "Democrat_Pie_Chart.json";
+  var specVis7 = "Republican_Pie_Chart.json";
 
   vegaEmbed('#vis1', specVis1, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -143,11 +148,11 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
-  vegaEmbed('#vis3', specVis1, {"actions": false}).then(function(result) {
+  vegaEmbed('#vis3', specVis3, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
-  vegaEmbed('#vis4', specVis2, {"actions": false}).then(function(result) {
+  vegaEmbed('#vis4', specVis4, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 </script>
