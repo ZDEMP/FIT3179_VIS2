@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": "2016 US Election results by State",
-  "width": 400,
-  "height": 300,
+  "width": 300,
+  "height": 150,
   "background": "#ffffcc",
   "projection": {"type": "albersUsa"},
   "data": {
