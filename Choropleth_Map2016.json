@@ -3,6 +3,7 @@
   "title": "2016 US Election results by State",
   "width": 500,
   "height": 350,
+  "background": "#ffffcc",
   "projection": {"type": "albersUsa"},
   "data": {
     "url": "https://raw.githubusercontent.com/ZDEMP/FIT3179_VIS2/main/us-states%20(1).json",
