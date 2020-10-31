@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": "Republican vs Democrat Votes by Year",
-  "width": 500,
-  "height": 350,
+  "width": 400,
+  "height": 300,
   "background": "#ffffcc",
   "data": {
     "url": "https://raw.githubusercontent.com/ZDEMP/FIT3179_VIS2/main/Yearly%20Data.csv"
