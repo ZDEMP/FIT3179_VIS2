@@ -34,7 +34,7 @@
       "field": "MvI",
       "scale": {
         "domain": ["Main", "Independent"],
-        "range": ["#996ee8", "#8a8a8a"]
+        "range": ["#fee0d2", "#8a8a8a"]
       },
       "title": "Type of Party"
     },
