@@ -13,7 +13,7 @@
         "input": "select",
         "options": [null, "Main", "Independent"],
         "labels": ["Show All", "Main", "Independent"],
-        "name": "Type Selection: "
+        "name": "Party Selection: "
       }
     }
   ],
@@ -45,18 +45,6 @@
         "title": "Proportion of Independent Votes",
         "type": "quantitative",
         "format": ".2f"
-      },
-      {
-        "field": "Main_Votes",
-        "type": "quantitative",
-        "format": ",",
-        "title": "Votes for a Main Party"
-      },
-      {
-        "field": "Ind_Votes",
-        "type": "quantitative",
-        "format": ",",
-        "title": "Independent Votes"
       }
     ]
   },
