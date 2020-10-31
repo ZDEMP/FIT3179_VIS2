@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": "1976 US Election results by State",
-  "width": 800,
-  "height": 600,
+  "width": 500,
+  "height": 350,
   "projection": {"type": "albersUsa"},
   "data": {
     "url": "https://raw.githubusercontent.com/ZDEMP/FIT3179_VIS2/main/us-states%20(1).json",
