@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Multiple Visualisations | An Example</title>
+ <title>Visualisation 2 - US Election Data Analysis | An Example</title>
   <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
@@ -58,8 +58,8 @@
    <!-- pure grid group -->
     <div class="pure-g">
       <div class="pure-u-1-1">
-        <h1>Multiple Visualisations</h1>
-        <p>This page demonstrates how you can use pure.css grid for your layout.</p>
+        <h1>Visualisation 2 - US Election Data Analysis</h1>
+        <p>This Visualisation explains data from the US elections over the last 30 years. Below you will see a comparison between the voting breakdown of the 1976 election and the 2016 election, notice the visual change in party preferences. The darker the colour, the "more" Republican or Democrat the State is, ie. higher winning percentage. </p>
       </div>
     </div>
   <!-- end pure grid group -->
